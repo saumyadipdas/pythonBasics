@@ -42,6 +42,7 @@ print("---------") #O/P: orl
 a = "Hello, World!"
 print(a.upper())
 print(a.lower())
+print(a.swapcase()) #Swap Case
 print("---------")
 
 a = " Hello, World! " #Remove Whitespace
@@ -51,15 +52,123 @@ print("---------")
 a = "Hello, World!" #Replace String
 print(a.replace("H", "J"))
 
+################################################################################
+################################################################################
+################################################################################
 
-########################################
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# title() method ##########################
+# Make the first letter in each word upper case
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+txt = "Welcome to my 2nd world"
+x = txt.title()
+print(x) #Welcome To My 2Nd World
 
-# Split Strings
+#Note that the first letter after a non-alphabet letter is converted into a upper case letter
+txt = "hello b2b2b2 and 3g3g3g"
+x = txt.title()
+print(x) #Hello B2B2B2 And 3G3G3G
+
+################################################################################
+################################################################################
+################################################################################
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# replace() method ##########################
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+
+txt = "one one was a race horse, two two was one too."
+x = txt.replace("one", "three", 2) #Replace the two first occurrence of the word "one"
+print(x) #three three was a race horse, two two was one too.
+
+################################################################################
+################################################################################
+################################################################################
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# startswith() method ##########################
+# The startswith() method returns True if the string starts with the specified value, otherwise False.
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   
+
+txt = "Hello, welcome to my world."
+x = txt.startswith("Hello") #Check if the string starts with "Hello"
+print(x) #True
+x = txt.startswith("wel", 7, 20) #Check if position 7 to 20 starts with the characters "wel"
+print(x) #True
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# endsWith() >>>>>>>>>>
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+txt = "Hello, welcome to my world."
+x = txt.endswith(".")
+print(x) #true
+txt = "Hello, welcome to my world."
+x = txt.endswith("my world.", 5, 11) #Check if position 5 to 11 ends with the phrase "my world."
+print(x) #false
+print("---------")
+
+
+################################################################################
+################################################################################
+################################################################################
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Split Strings >>>>>>>>>>>>>>> ##########
+# split(), rsplit() & splitlines().
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+###### split() >>>>>>>>>>>>>>>>>>>>>>>> Syntax: string.rsplit(separator, maxsplit)
 
 a = "Hello, World!"
 print(a.split(",")) # returns ['Hello', ' World!']
+
+txt = "hello, my name is Peter, I am 26 years old"
+x = txt.split(", ") # ['hello', 'my name is Peter', 'I am 26 years old']
+print(x)
+
+txt = "apple#banana#cherry#orange"
+# setting the maxsplit parameter to 1, will return a list with 2 elements!
+x = txt.split("#", 1) # ['apple', 'banana#cherry#orange']
+print(x)
 print("---------")
 
+########################################
+
+###### rsplit() >>>>>>>>>>>>>>>>>>>>>>>> Syntax: string.rsplit(separator, maxsplit)
+# ~ The rsplit() method splits a string into a list, starting from the right.
+# ~ If no "max" is specified, this method will return the same as the split() method.
+# ~ Note: When maxsplit is specified, the list will contain the specified number of elements plus one.
+
+#   ( maxsplit	Optional. Specifies how many splits to do. Default value is -1, which is "all occurrences" )
+
+
+txt = "apple, banana, cherry"
+x = txt.rsplit(", ")
+print(x) #['apple', 'banana', 'cherry']
+x = txt.split(", ")
+print(x) #['apple', 'banana', 'cherry']
+
+x = txt.rsplit(", ", 1) ## setting the maxsplit parameter to 1, will return a list with 2 elements!
+print(x) #['apple, banana', 'cherry']
+x = txt.split(", ", 1)
+print(x) #['apple', 'banana, cherry']
+x = txt.rsplit(", ", -1) ## Default maxSplit!
+print(x) #['apple', 'banana', 'cherry']
+
+
+########################################
+
+###### splitlines() >>>>>>>>>>>>>>>>>>>>>>>>
+
+x = txt.splitlines(True) #param: Optional. Specifies if the line breaks should be included (True), or not (False). Default value is False
+print(x) #['Thank you for the music\n', 'Welcome to the jungle']
+
+## splitlines() : Split a string into a list where each line is a list item. The splitting is done at line breaks.
+txt = "Thank you for the music\nWelcome to the jungle"
+x = txt.splitlines()
+print(x) #['Thank you for the music', 'Welcome to the jungle']
 
 ################################################################################
 ################################################################################
@@ -137,24 +246,36 @@ print("---------")
 
 ################################################################################
 ################################################################################
+################################################################################
+################################################################################
 
 ## Example >>> ##
 
 a="A\\BC\"D"
-print(a)
-print(len(a))
+print(a) #A\BC"D
+print(len(a)) #6
+print("---------")
 a="AbCdE"
-print(a.upper())
-print(a.lower())
-print(a[:2])
+print(a.upper()) #ABCDE
+print(a.lower()) #abcde
+print(a.swapcase()) #aBcDe
+txt = "Welcome to my 2nd world"
+x = txt.title()
+print(x) #Welcome To My 2Nd World
+txt = "one one was a race horse, two two was one too."
+x = txt.replace("one", "three", 2) #Replace the two first occurrence of the word "one"
+print(x) #three three was a race horse, two two was one too.
+print("---------")
+print(a[:2]) #Ab
 a="  hello,world  "
-print(a.strip().split(","))
+print(a.strip().split(",")) #['hello', 'world']
 print("---------")
 price = 59.32923
 txt = f"The price is {price:.2f} dollars"
 print(txt)
 txt = f"The price is {20 * 59} dollars"
 print(txt)
+print("---------")
 
 ################################################################################
 ################################################################################
